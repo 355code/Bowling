@@ -1,0 +1,168 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+.message{
+    position: absolute;
+    width: 400px;
+    margin: auto;
+    left: calc(50% - 200px);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
+    z-index: 2;
+}
+
+.game{
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;
+    height: fit-content;
+}
+
+.row{
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    justify-content: center;
+}
+
+.pin{
+    margin: 5px;
+    height: 50px;
+    width: 30px;
+    border-radius: 50% 50% 40% 40%;
+    border: solid black;
+    background: radial-gradient(white 0 50%, gray 90%);
+}
+
+.pin::before{
+    display: block;
+    position: relative;
+    top: -32px;
+    left: 4px;
+    content: '';
+    height: 20px;
+    width: 20px;
+    border: solid black;
+    border-radius: 50%;
+    background: radial-gradient(white 0 50%, gray 90%);
+}
+
+.pin::after{
+    display: block;
+    position: relative;
+    content: '';
+    top: -35px;
+    left: 8px;
+    width: 12px;
+    height: 14px;
+    background: linear-gradient(90deg, gray 2%, transparent 30% 70%, gray 96%), linear-gradient(white 0 30%, red 30% 40%, white 40% 60%, red 60% 70%, white 70%);
+    border: solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+
+.ball{
+    position: absolute;
+    top: 400px;
+    left: calc(50% - 30px);
+    height: 60px;
+    width: 60px;
+    background: radial-gradient(ellipse at right bottom, white, blue, black);
+    border-radius: 50%;
+    border: solid black;
+    cursor: grab;
+    z-index: 1;
+}
+
+.ball:active{
+    cursor: grabbing;
+}
+
+.ball::after{
+    display: block;
+    position: relative;
+    content: '..';
+    transform: rotate(45deg);
+    word-wrap: break-word;
+    height: 30px;
+    width: 20px;
+    border-radius: 50%;
+    color: white;
+    font-size: 40px;
+    top: 10px;
+    left: 20px;
+}
+
+.lane{
+    left: calc(50% - 150px);
+    top: 70px;
+    height: 500px;
+    width: 300px;
+    background-color: antiquewhite;
+    position: absolute;
+    z-index: -1;
+    transform: perspective(100px) rotateX(10deg);
+}
+
+.ball-guide{
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 410px;
+    left: calc(50% - 5px);
+    z-index: 0;
+}
+
+.fall-right{
+   animation-name: fall-right;
+   animation-duration: 0.5s;
+   animation-fill-mode: forwards;
+   
+}
+
+.fall-left{
+   animation-name: fall-left;
+   animation-duration: 0.5s;
+   animation-fill-mode: forwards;
+}
+
+.hidden{
+    display: none;
+}
+
+.roll{
+    animation-name: roll;
+    animation-duration: 1.5s;
+     animation-fill-mode: forwards;
+}
+
+
+@keyframes roll{
+to{
+    transform: rotateZ(180deg) scale(0.7);
+}
+}
+
+@keyframes fall-right{
+     30%{
+        transform: rotateZ(60deg) translateY(20px,20px);
+    }
+    to{
+        transform: rotateZ(90deg) translateY(-100px);
+    }
+}
+
+@keyframes fall-left{
+    30%{
+        transform: rotateZ(-60deg) translateY(-20px,-20px);
+    }
+    to{
+        transform: rotateZ(-90deg) translateY(-100px);
+    }
+}
