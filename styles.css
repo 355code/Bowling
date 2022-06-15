@@ -1,6 +1,10 @@
 :root{
     touch-action: none;
-    overscroll-behavior: contain;
+}
+
+html,body{
+    overscroll-behavior-y: contain;
+    touch-action: none;
 }
 
 body{
