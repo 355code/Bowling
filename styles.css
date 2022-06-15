@@ -1,7 +1,11 @@
-.body{
+:root{
+    touch-action: none;
+    overscroll-behavior: contain;
+}
+
+body{
     margin: 0;
     padding: 0;
-    overscroll-behavior: contain;
 }
 
 .message{
