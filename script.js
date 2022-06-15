@@ -33,7 +33,7 @@ const adjustGuide = () => {
     ANGLE = angle_rad;
     FORCE = Math.sqrt(Math.pow(adj, 2) + Math.pow(opp, 2))
     guide.style.height = BALL_END_Y - BALL_START_Y + 'px';
-    guide.style.transform = `perspective(150px) rotate(${-angle_rad}rad) rotateX(${adj / 5}deg)`
+    guide.style.transform = `perspective(150px) rotate(${-angle_rad}rad) rotateX(${adj / 7}deg)`
 }
 
 const rollBall = ()=>{
